@@ -1,0 +1,304 @@
+/* 基础设置 */
+:root {
+    --primary-color: #ffffff; /* 主色：白色 */
+    --secondary-color: #cccccc; /* 次要色：浅灰色 */
+    --accent-color: #C8996C; /* 强调色：金色/铜色 */
+    --dark-bg: #1a1a1a; /* 深色背景 */
+    --text-color: #eeeeee;
+    --font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* 头部和导航栏 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(26, 26, 26, 0.9); /* 半透明背景 */
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav a {
+    margin-left: 30px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-btn {
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* 英雄区 - 大图背景和文字 */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* 确认这里的路径是正确的，例如 images/hero_bg.jpg */
+    background: url('images/hero_bg.jpg') no-repeat center center/cover;
+    background-color: #333;
+    color: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    z-index: 10;
+}
+
+.subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 300;
+    margin: 20px 0 40px;
+    line-height: 1.2;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--primary-color);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+/* 作品集网格 */
+.portfolio-section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 80px;
+    color: var(--primary-color);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+/* --- 🌟 关键修改区域：添加高度以显示图片 🌟 --- */
+.grid-item {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    /* 采用纵横比容器技巧 (例如：3:4 的纵向人像比例) */
+    /* 这样宽度变化时，高度也会相应变化，保持比例 */
+    padding-bottom: 120%; /* 设置高度为宽度的 120% */
+    height: 0; /* 必须设置为 0 */
+    background-color: #333; /* 在图片加载前作为占位符 */
+    border-radius: 4px;
+}
+
+.grid-item img {
+    /* 确保图片绝对定位，以填充 padding-bottom 撑开的区域 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* 关于摄影师 */
+.about-section {
+    padding: 100px 50px;
+    background-color: #222;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+
+.bio-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+}
+
+.detail-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* 联系方式 */
+.contact-section {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.contact-item h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.social-link {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.qr-code-placeholder {
+    /* 移除 background-color，因为现在用的是图片 */
+    height: 150px;
+    width: 150px;
+    /* background-color: #333; */
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+/* 页脚 */
+.footer {
+    padding: 30px 50px;
+    text-align: center;
+    background-color: var(--dark-bg);
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* --- 基础过渡动画 CSS --- */
+
+/* 默认隐藏状态 */
+.slide-up, .slide-left, .fade-in, .fade-in-delay, .zoom-in {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    transform: translateY(20px); /* 默认向下移动，实现向上滑入效果 */
+}
+
+/* 动画触发状态 */
+.slide-up.visible, .fade-in.visible, .fade-in-delay.visible, .zoom-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 延迟动画 */
+.fade-in-delay:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-delay:nth-child(3) { transition-delay: 0.2s; }
+.fade-in-delay:nth-child(4) { transition-delay: 0.3s; }
+
+/* 网格缩放动画 */
+.zoom-in {
+    transform: scale(0.95);
+}
+.zoom-in.visible {
+    transform: scale(1);
+}
+
+/* 按钮悬停动画 */
+.animate-scale {
+    transition: transform 0.3s ease;
+}
+
+.animate-scale:hover {
+    transform: scale(1.05);
+}

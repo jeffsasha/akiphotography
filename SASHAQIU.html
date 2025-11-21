@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasha 秋鸽 - 莫斯科人像摄影师 & 导演</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">Sasha秋鸽 | AKI.PHOTOGRAPHY</div>
+        <nav class="nav">
+            <a href="#home">首页</a>
+            <a href="#portfolio">作品集</a>
+            <a href="#about">关于</a>
+            <a href="#contact" class="contact-btn">联系</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section fade-in">
+        <div class="hero-content">
+            <p class="subtitle">DR.SASHA YAU</p>
+            <h1 class="main-title">
+                莫斯科独立摄影师
+                <br>
+                人像 & 商业影像导演
+            </h1>
+            <a href="#portfolio" class="cta-button animate-scale">VIEW PORTFOLIO →</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="section-title slide-up">精选作品 (RECENT WORK)</h2>
+
+        <div class="grid-container">
+            <div class="grid-item zoom-in"><img src="images/portrait_1.jpg" alt="人像作品 1"></div>
+            <div class="grid-item zoom-in"><img src="images/commercial_2.jpg" alt="商业作品 2"></div>
+            <div class="grid-item zoom-in"><img src="images/portrait_3.jpeg"</div>
+            <div class="grid-item zoom-in"><img src="images/event_4.jpg"</div>
+            <div class="grid-item zoom-in"><img src="images/commercial_5.jpg"</div>
+            <div class="grid-item zoom-in"><img src="images/portrait_6.jpg"</div>
+        </div>
+        <a href="#" class="cta-button animate-scale load-more-btn">查看更多作品</a>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title slide-up">关于 Sasha 秋鸽</h2>
+            <p class="intro-text fade-in-delay">
+                莫斯科国立大学博士在读，定居于莫斯科，拥有超过10年的专业摄影经验。
+            </p>
+            <div class="bio-details">
+                <div class="detail-item slide-left">
+                    <h3>商业影像经验</h3>
+                    <p>作为影像导演和摄影师，曾为华为和vivo，oppo拍摄广告片，擅长将品牌故事融入光影叙事。</p>
+                </div>
+                <div class="detail-item slide-left">
+                    <h3>人像摄影成就</h3>
+                    <p>专注于人像摄影，其作品风格细腻且富有情感张力。曾为中国驻俄罗斯大使馆完成官方人像拍摄任务。</p>
+                </div>
+                <div class="detail-item slide-left">
+                    <h3>坐标与背景</h3>
+                    <p>目前在莫斯科深耕，将东西方美学融入创作。她的作品是古典底蕴与现代技术的完美结合。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title slide-up">开始您的专属拍摄</h2>
+
+        <div class="contact-grid">
+            <div class="contact-item fade-in-delay">
+                <h3>📮 邮箱联系</h3>
+                <p>最正式的合作请通过邮件沟通，我会在 24 小时内回复。</p>
+                <a href="mailto:Sasha.Qiuge@example.com">qiutr@mail.ru</a>
+            </div>
+
+            <div class="contact-item fade-in-delay">
+                <h3>💌 社交媒体</h3>
+                <p>分享日常与灵感，欢迎在小红书关注我。</p>
+                <a href="https://xiaohongshu.com/SashaQiuge" target="_blank" class="social-link">
+                     小红书主页
+                </a>
+            </div>
+
+            <div class="contact-item fade-in-delay">
+                <h3>💼 企业微信</h3>
+                <p>扫码添加企业微信，获取定制化商业拍摄方案。</p>
+                <div class="qr-code-placeholder"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Sasha 秋鸽. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.slide-up, .slide-left, .fade-in, .fade-in-delay, .zoom-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
